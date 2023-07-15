@@ -25,18 +25,22 @@ class ResultsPage(MethodView):
         flatmate1 = flat.Flatmate(bill_form.name1.data, int(bill_form.days_in_house1.data))
         flatmate2 = flat.Flatmate(bill_form.name2.data, int(bill_form.days_in_house2.data))
 
-        return f"{flatmate1.name} pays {flatmate1.pays(bill, flatmate2)}"
+        return render_template('results.html',
+                               name1=flatmate1.name,
+                               name2=flatmate2.name,
+                               amount1=flatmate1.pays(bill, flatmate2),
+                               amount2=flatmate2.pays(bill, flatmate1))
 
 
 class BillForm(Form):
-    amount = StringField('Bill Amount: ')
-    period = StringField('Bill Period: ')
+    amount = StringField('Bill Amount: ', default=100)
+    period = StringField('Bill Period: ', default='December 2020')
 
-    name1 = StringField('Name: ')
-    days_in_house1 = StringField('Days in the house: ')
+    name1 = StringField('Name: ', default='John')
+    days_in_house1 = StringField('Days in the house: ', default=20)
 
-    name2 = StringField('Name: ')
-    days_in_house2 = StringField('Days in the house: ')
+    name2 = StringField('Name: ', default='Marry')
+    days_in_house2 = StringField('Days in the house: ', default=10)
 
     button = SubmitField('Calculate')
 
