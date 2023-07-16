@@ -11,17 +11,4 @@ class Calorie:
         self.temperature = temperature
 
     def calculate(self):
-        pass
-
-
-class Temperature:
-    """
-    Represent a temperature value extracted from timeanddate.com/weather_webpage.
-    """
-
-    def __init__(self, country, city):
-        self.country = country
-        self.city = city
-
-    def get(self):
-        pass
+        return 18 * self.weight + 6.25 * self.height - 5 * self.age - 10 * self.temperature
