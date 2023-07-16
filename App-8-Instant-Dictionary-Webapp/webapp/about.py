@@ -16,7 +16,3 @@ class About:
         Aldus PageMaker including versions of Lorem Ipsum.
         """, classes='text-lg')
         return wp
-
-
-jp.Route(About.path, About.serve)
-jp.justpy()
