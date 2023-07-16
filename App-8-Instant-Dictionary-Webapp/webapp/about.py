@@ -1,3 +1,5 @@
+from webapp import layout
+
 import justpy as jp
 
 
@@ -6,7 +8,11 @@ class About:
 
     def serve(self):
         wp = jp.QuasarPage(tailwind=True)
-        div = jp.Div(a=wp, classes="bg-gray-200 h-screen")
+
+        _layout = layout.DefaultLayout(a=wp)
+        container = jp.QPageContainer(a=_layout)
+
+        div = jp.Div(a=container, classes="bg-gray-200 h-screen p-2")
         jp.Div(a=div, text='This is the about page!', classes='text-4xl m-2')
         jp.Div(a=div, text="""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
         has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of 
