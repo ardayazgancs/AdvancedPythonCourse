@@ -47,4 +47,4 @@ class Temperature:
         Cleans the output of _scrape
         """
         scraped_content = self._scrape()
-        return float(scraped_content['temp'].replace('\xa0C', '').strip())
+        return float(scraped_content['temp'].replace('\xa0°C', '').strip())
